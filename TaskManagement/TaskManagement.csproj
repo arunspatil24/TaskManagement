@@ -70,6 +70,7 @@
     <Content Include="BootStrap\bootstrap.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="WebFormTaskDetails.aspx" />
+    <Content Include="WebFormUser.aspx" />
     <Content Include="WebFormWork.aspx" />
     <Content Include="WebFormProject.aspx" />
     <Content Include="Script\bootstrap.min.js" />
@@ -91,6 +92,13 @@
     </Compile>
     <Compile Include="WebFormTaskDetails.aspx.designer.cs">
       <DependentUpon>WebFormTaskDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebFormUser.aspx.cs">
+      <DependentUpon>WebFormUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebFormUser.aspx.designer.cs">
+      <DependentUpon>WebFormUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebFormWork.aspx.cs">
       <DependentUpon>WebFormWork.aspx</DependentUpon>
