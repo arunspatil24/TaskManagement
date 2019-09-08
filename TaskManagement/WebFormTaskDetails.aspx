@@ -35,10 +35,14 @@
         <div class="row">
             <div class="col-md-2">
                 <h4>
-                    <asp:Label Text="Date" runat="server" CssClass="label label-info"></asp:Label></h4>
+                    <asp:Label Text="Date" runat="server" CssClass="label label-info"></asp:Label>
+                </h4>
+            </div>
+            <div class="col-md-2">
+                <asp:TextBox ID="DateTextBox" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
             </div>
             <div class="col-md-4">
-                <asp:Calendar ID="CDate" runat="server" SelectedDate="<%# DateTime.Today %>"></asp:Calendar>
+                <asp:Calendar ID="CDate" runat="server" SelectedDate="<%# DateTime.Today %>" OnSelectionChanged="CDate_SelectionChanged"></asp:Calendar>
             </div>
         </div>
         <div class="row">
@@ -62,20 +66,19 @@
         <div class="row">
             <div class="col-md-2">
                 <asp:Button ID="ADDButton" runat="server" CssClass="btn btn-info" Text="ADD" OnClick="ADDButton_Click" />
-                <asp:Button ID="CancleButton" runat="server" CssClass="btn btn-info" Text="Cancle" />
-                <asp:Button ID="UpdateButton" runat="server" CssClass="btn btn-info" Text="Update" />
+                <asp:Button ID="CancleButton" runat="server" CssClass="btn btn-info" Text="Cancle" OnClick="CancleButton_Click" />
+                <asp:Button ID="UpdateButton" runat="server" CssClass="btn btn-info" Text="Update" OnClick="UpdateButton_Click" />
             </div>
         </div>
-    </div>
-    <div class="container">
+  
         <div class="row-no-gutters">
-            <div class="col">
-                <asp:GridView ID="TaskDetailsGridView" CssClass="table table-responsive table-bordered table-hover" runat="server" OnRowCommand="TaskDetailsGridView_RowCommand">
+            <div class="col-md-6">
+                <asp:GridView ID="TaskDetailsGridView" class="table table-responsive table-bordered table-hover" runat="server" OnRowCommand="TaskDetailsGridView_RowCommand" CellPadding="3"  CellSpacing="2">
                     <Columns>
                         <asp:TemplateField ShowHeader="False">
                             <ItemTemplate>
-                                <asp:LinkButton ID="EditButton" runat="server" CausesValidation="false" CommandName="EditCommand" class="glyphicon glyphicon-pencil" Text="Edit"></asp:LinkButton>
-                                 <asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="false" CommandName="DeleteCommand" Text="Delete" class="glyphicon glyphicon-trash" OnClientClick="return confirm('Are You Sure you want to delete this iteam?');"></asp:LinkButton>
+                                <asp:LinkButton ID="EditButton" runat="server" CausesValidation="false" CommandName="EditCommand" class="glyphicon glyphicon-pencil" ></asp:LinkButton>
+                                 <asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="false" CommandName="DeleteCommand"  class="glyphicon glyphicon-trash" OnClientClick="return confirm('Are You Sure you want to delete this iteam?');"></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

@@ -21,18 +21,18 @@ namespace TaskManagement
             {
                 Sucess.Visible = false;
                 error.Visible = false;
-                hideButtons();
+                HideButtons();
                 Display();
             }
             
         }
 
-        public void hideButtons()
+        public void HideButtons()
         {
             ClientUpdate.Visible = false;
             ClientCancel.Visible = false;
         }
-        public void showButtons()
+        public void ShowButtons()
         {
             ClientUpdate.Visible = true;
             ClientCancel.Visible = true;
@@ -100,7 +100,7 @@ namespace TaskManagement
                 var clickedRow = getBtn.NamingContainer as GridViewRow;
                 Id = int.Parse(clickedRow.Cells[1].Text);
                 ClientName.Text=clickedRow.Cells[2].Text;
-                showButtons();
+                ShowButtons();
                 ClientAdd.Visible = false;
 
             }
@@ -151,12 +151,14 @@ namespace TaskManagement
                     clearValues();
                     Display();
                     ClientAdd.Visible = true;
+                    HideButtons();
                 }
                 else
                 {
                     Sucess.Text = "Error in inserting the vaule";
                     Sucess.Visible = true;
                     ClientAdd.Visible = true;
+                    HideButtons();
                 }
             }
         }
@@ -171,7 +173,7 @@ namespace TaskManagement
         protected void ClientCancel_Click(object sender, EventArgs e)
         {
             clearValues();
-            hideButtons();
+            HideButtons();
             ClientAdd.Visible = true;
         }
 

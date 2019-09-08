@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="BootStrap\bootstrap.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="WebFormRole.aspx" />
     <Content Include="WebFormTaskDetails.aspx" />
     <Content Include="WebFormUser.aspx" />
     <Content Include="WebFormWork.aspx" />
@@ -85,6 +86,13 @@
     </Compile>
     <Compile Include="Home.Master.designer.cs">
       <DependentUpon>Home.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WebFormRole.aspx.cs">
+      <DependentUpon>WebFormRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebFormRole.aspx.designer.cs">
+      <DependentUpon>WebFormRole.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebFormTaskDetails.aspx.cs">
       <DependentUpon>WebFormTaskDetails.aspx</DependentUpon>

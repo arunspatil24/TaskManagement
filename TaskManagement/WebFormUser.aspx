@@ -16,7 +16,7 @@
                <h4> <asp:Label ID="PasswordLabel" runat="server" CssClass="label label-info" Text="Password"></asp:Label></h4>
             </div>
             <div class="col-md-3">
-                <asp:TextBox ID="PasswordTextBox" class="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="PasswordTextBox" class="form-control" runat="server" ></asp:TextBox>
             </div>
         </div>
         <div class="row">
@@ -31,8 +31,8 @@
         <div class="row">
             <div class="col-md-4">
                 <asp:Button ID="AddButton" CssClass="btn btn-info" runat="server" isPostBack="true" Text="ADD" OnClick="AddButton_Click" />
-                 <asp:Button ID="UpdateButton" CssClass="btn btn-info" runat="server" Text="Update" />
-                 <asp:Button ID="CancleButton" CssClass="btn btn-info" runat="server" Text="Cancle" />
+                 <asp:Button ID="UpdateButton" CssClass="btn btn-info" runat="server" Text="Update" OnClick="UpdateButton_Click" />
+                 <asp:Button ID="CancleButton" CssClass="btn btn-info" runat="server" Text="Cancle" OnClick="CancleButton_Click" />
                 
             </div>
         </div>
@@ -43,7 +43,16 @@
         </div>
         <div class="row-no-gutters">
             <div class="col-md-5">
-                <asp:GridView ID="UserLoginGridView" CssClass="table table-bordered table-hover table-responsive" runat="server"></asp:GridView>
+                <asp:GridView ID="UserLoginGridView" CssClass="table table-bordered table-hover table-responsive" runat="server" OnRowCommand="UserLoginGridView_RowCommand" >
+                    <Columns>
+                        <asp:TemplateField ShowHeader="False">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="EditLinkButton" runat="server" CausesValidation="false" CommandName="EditCommand" class="glyphicon glyphicon-pencil" ></asp:LinkButton>
+                                <asp:LinkButton ID="DeleteLinkButton" runat="server" CausesValidation="false" CommandName="DeleteCommand" class="glyphicon glyphicon-trash" OnClientClick="return confirm('Are You Sure you want to delete this iteam?');" ></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
             </div>
         </div>
     </div>

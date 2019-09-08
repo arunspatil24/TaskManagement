@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-md-1">
                     <h5>
-                        <asp:Label ID="Label1" runat="server" Text="Client Name" class="mandatory"></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text="Client Name" class="mandatory label label-info"></asp:Label>
 
                     </h5>
                 </div>
