@@ -9,6 +9,7 @@
             </div>
             <div class="col-md-3">
                 <asp:TextBox ID="UserNameTextBox" class="form-control" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidUserName" runat="server"  ErrorMessage="please enter the valid user name" ControlToValidate="UserNameTextBox" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
         </div>
         <div class="row">
@@ -16,7 +17,8 @@
                <h4> <asp:Label ID="PasswordLabel" runat="server" CssClass="label label-info" Text="Password"></asp:Label></h4>
             </div>
             <div class="col-md-3">
-                <asp:TextBox ID="PasswordTextBox" class="form-control" runat="server" ></asp:TextBox>
+                <asp:TextBox ID="PasswordTextBox" class="form-control" runat="server" TextMode="Password" ></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidPassword" runat="server" ErrorMessage="Please provide correct password" ControlToValidate="PasswordTextBox" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
         </div>
         <div class="row">
@@ -24,7 +26,8 @@
                <h4> <asp:Label ID="RoleIdLabel" runat="server" CssClass="label label-info" Text="Role Id"></asp:Label></h4>
             </div>
             <div class="col-md-3">
-                <asp:TextBox ID="RoleIdTextBox" Type="number" class="form-control" runat="server"></asp:TextBox>
+                <asp:DropDownList ID="RoleDropDownList" CssClass="form-control" runat="server"></asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidDrpDwnRole" runat="server" ErrorMessage="Select the role" ControlToValidate="RoleDropDownList" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
         </div>
         <br />
@@ -33,7 +36,6 @@
                 <asp:Button ID="AddButton" CssClass="btn btn-info" runat="server" isPostBack="true" Text="ADD" OnClick="AddButton_Click" />
                  <asp:Button ID="UpdateButton" CssClass="btn btn-info" runat="server" Text="Update" OnClick="UpdateButton_Click" />
                  <asp:Button ID="CancleButton" CssClass="btn btn-info" runat="server" Text="Cancle" OnClick="CancleButton_Click" />
-                
             </div>
         </div>
         <div class="row">

@@ -31,6 +31,15 @@ namespace TaskManagement {
         protected global::System.Web.UI.WebControls.TextBox UserNameTextBox;
         
         /// <summary>
+        /// RequiredFieldValidUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidUserName;
+        
+        /// <summary>
         /// PasswordLabel control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace TaskManagement {
         protected global::System.Web.UI.WebControls.TextBox PasswordTextBox;
         
         /// <summary>
+        /// RequiredFieldValidPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidPassword;
+        
+        /// <summary>
         /// RoleIdLabel control.
         /// </summary>
         /// <remarks>
@@ -58,13 +76,22 @@ namespace TaskManagement {
         protected global::System.Web.UI.WebControls.Label RoleIdLabel;
         
         /// <summary>
-        /// RoleIdTextBox control.
+        /// RoleDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox RoleIdTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList RoleDropDownList;
+        
+        /// <summary>
+        /// RequiredFieldValidDrpDwnRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidDrpDwnRole;
         
         /// <summary>
         /// AddButton control.

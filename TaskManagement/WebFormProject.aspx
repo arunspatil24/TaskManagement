@@ -7,6 +7,7 @@
             content:'*';
             color:red;
         }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -35,7 +36,6 @@
                     <asp:TextBox ID="ProjectName" class="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
-
             <div class="row">
                 </br>
             </div>

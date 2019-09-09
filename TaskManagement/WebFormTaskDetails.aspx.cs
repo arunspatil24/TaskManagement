@@ -123,7 +123,8 @@ namespace TaskManagement
                 cmd.Parameters.AddWithValue("@CId", ClientDropDownList.SelectedValue);
                 cmd.Parameters.AddWithValue("@PId", ProjectDropDownList.SelectedValue);
                 cmd.Parameters.AddWithValue("@WId", WorkDropDownList.SelectedValue);
-                cmd.Parameters.AddWithValue("@TDate", CDate.SelectedDate);
+
+                cmd.Parameters.AddWithValue("@TDate", Convert.ToDateTime(DateTextBox.Text));
                 cmd.Parameters.AddWithValue("@UserId", "0");
                 cmd.Parameters.AddWithValue("@THours", int.Parse(WorkHoursTextBox.Text));
                 cmd.Parameters.AddWithValue("@Details", WorkDetailsTextArea.Value);
@@ -181,6 +182,7 @@ namespace TaskManagement
                     SqlCommand cmd = new SqlCommand("DeleteTaskDetails", connection);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@TId", TId);
+                    connection.Open();
                     int result = cmd.ExecuteNonQuery();
                     if (result > 0)
                     {

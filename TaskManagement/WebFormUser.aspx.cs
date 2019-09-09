@@ -22,6 +22,24 @@ namespace TaskManagement
                 UpdateButton.Visible = false;
                 sucessLabel.Visible = false;
                 Display();
+                DropDownBinding();
+            }
+           
+        }
+
+        public void DropDownBinding()
+        {
+            using (SqlConnection connection = new SqlConnection(con))
+            {
+                SqlCommand cmd = new SqlCommand("DisplayRole", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                connection.Open();
+                RoleDropDownList.DataSource = cmd.ExecuteReader();
+                RoleDropDownList.DataTextField = "RName";
+                RoleDropDownList.DataValueField = "RId";
+                RoleDropDownList.DataBind();
+                ListItem list = new ListItem("--select--","");
+                RoleDropDownList.Items.Insert(0, list);
             }
         }
         public void Display()
@@ -53,7 +71,7 @@ namespace TaskManagement
                 }
                 cmd.Parameters.AddWithValue("@UName", UserNameTextBox.Text);
                 cmd.Parameters.AddWithValue("@UPassword", PasswordTextBox.Text);
-                cmd.Parameters.AddWithValue("@RId", int.Parse(RoleIdTextBox.Text));
+                cmd.Parameters.AddWithValue("@RId", int.Parse(RoleDropDownList.SelectedValue));
                 connection.Open();
                 int result = cmd.ExecuteNonQuery();
                 if (result > 0)
@@ -64,6 +82,7 @@ namespace TaskManagement
                     CancleButton.Visible = false;
                     UpdateButton.Visible = false;
                     UId = null;
+                    Response.Redirect(Request.Url.AbsoluteUri);
                 }
                 else
                 {
@@ -87,7 +106,7 @@ namespace TaskManagement
             UId = null;
             UserNameTextBox.Text = "";
             PasswordTextBox.Text = "";
-            RoleIdTextBox.Text = "";
+            RoleDropDownList.SelectedValue = "-1";
         }
         protected void CancleButton_Click(object sender, EventArgs e)
         {
@@ -109,7 +128,8 @@ namespace TaskManagement
                 UId = int.Parse(clickedRow.Cells[1].Text);
                 UserNameTextBox.Text = clickedRow.Cells[2].Text;
                 PasswordTextBox.Text = clickedRow.Cells[3].Text;
-                RoleIdTextBox.Text = clickedRow.Cells[4].Text;
+                DropDownBinding();
+                RoleDropDownList.SelectedValue =clickedRow.Cells[4].Text;
             }
             if (e.CommandName == "DeleteCommand")
             {
